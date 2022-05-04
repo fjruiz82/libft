@@ -1,41 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fruiz-ca <fruiz-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/26 12:24:24 by fruiz-ca          #+#    #+#             */
-/*   Updated: 2022/05/01 13:19:22 by fruiz-ca         ###   ########.fr       */
+/*   Created: 2022/05/04 10:07:19 by fruiz-ca          #+#    #+#             */
+/*   Updated: 2022/05/04 11:22:11 by fruiz-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <stdio.h>
 
-void	*ft_memmove(void *dest, const void *src, size_t len)
+char **ft_split(char const *s, char c)
 {
-	unsigned char	*cdest;
-	unsigned char	*csrc;
-	size_t			i;
+    int i;
+    //char *str;
+    char *strresult;
+    
+    strresult = (char *)malloc(sizeof(char) * strlen(s) + 1);
+    i = 0;
+    while (*s != '\0')
+    {
+        
 
-	cdest = dest;
-	csrc = (unsigned char *)src;
-	i = 0;
-	if (dest < src)
-	{
-		while (i < len)
-		{
-			cdest[i] = csrc[i];
-			i++;
-		}
-	}
-	else if (dest > src)
-	{
-		while (len > 0)
-		{
-			cdest[len - 1] = csrc[len - 1];
-			len--;
-		}
-	}
-	return (cdest);
+
+    }
+
+    
+    return (strresult);
 }

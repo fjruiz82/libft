@@ -6,7 +6,7 @@
 /*   By: fruiz-ca <fruiz-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 12:24:09 by fruiz-ca          #+#    #+#             */
-/*   Updated: 2022/04/26 12:24:12 by fruiz-ca         ###   ########.fr       */
+/*   Updated: 2022/05/01 12:08:29 by fruiz-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 
 	cdest = dest;
 	csrc = src;
+	if (n == 0 || cdest == csrc)
+		return (dest);
 	while (n > 0)
 	{
 		*cdest = *csrc;

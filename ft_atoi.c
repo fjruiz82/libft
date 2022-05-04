@@ -6,32 +6,32 @@
 /*   By: fruiz-ca <fruiz-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 12:55:11 by fruiz-ca          #+#    #+#             */
-/*   Updated: 2022/04/26 12:55:36 by fruiz-ca         ###   ########.fr       */
+/*   Updated: 2022/05/04 09:42:41 by fruiz-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_atoi(const char *str)
 {
 	int	i;
-	int	isneg;
-	int	rslt;
+	int	nb;
+	int	neg;
 
+	neg = 0;
+	nb = 0;
 	i = 0;
-	isneg = 1;
-	rslt = 0;
-	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
-		i++;
-	if (str[i] == '-')
+	while (*str == ' ' || *str == '\n' || *str == '\t' || *str == '\v'
+		|| *str == '\r' || *str == '\f')
+		str++;
+	if (*str == '-')
+		neg = 1;
+	if (*str == '-' || *str == '+')
+		str++;
+	while (str[i] >= 48 && str[i] <= 57)
 	{
-		isneg = -1;
+		nb = (str[i] - 48) + (10 * nb);
 		i++;
 	}
-	else if (str[i] == '+')
-		i++;
-	while (str[i] != '\0' && str[i] >= '0' && str[i] <= '9')
-	{
-		rslt = rslt * 10 + (str[i] - 48);
-		i++;
-	}
-	return (rslt * isneg);
+	if (neg == 1)
+		nb = nb * -1;
+	return (nb);
 }

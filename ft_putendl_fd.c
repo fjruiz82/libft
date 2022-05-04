@@ -1,41 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fruiz-ca <fruiz-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/26 12:24:24 by fruiz-ca          #+#    #+#             */
-/*   Updated: 2022/05/01 13:19:22 by fruiz-ca         ###   ########.fr       */
+/*   Created: 2022/05/01 16:51:32 by fruiz-ca          #+#    #+#             */
+/*   Updated: 2022/05/04 10:04:53 by fruiz-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
+#include <unistd.h>
 
-void	*ft_memmove(void *dest, const void *src, size_t len)
+void	ft_putendl_fd(char *s, int fd)
 {
-	unsigned char	*cdest;
-	unsigned char	*csrc;
-	size_t			i;
+	int	slen;
 
-	cdest = dest;
-	csrc = (unsigned char *)src;
-	i = 0;
-	if (dest < src)
-	{
-		while (i < len)
-		{
-			cdest[i] = csrc[i];
-			i++;
-		}
-	}
-	else if (dest > src)
-	{
-		while (len > 0)
-		{
-			cdest[len - 1] = csrc[len - 1];
-			len--;
-		}
-	}
-	return (cdest);
+	slen = ft_strlen(s);
+	write(fd, s, slen);
+	write(fd, "\n", 1);
 }
+
+/*
+int main ()
+{
+	char	str[];
+
+    str[] = "Parece lo mismo pero con EOL";
+    ft_putendl_fd(str, 1234);
+    return (0);
+}
+*/

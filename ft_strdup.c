@@ -1,41 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fruiz-ca <fruiz-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/26 12:24:24 by fruiz-ca          #+#    #+#             */
-/*   Updated: 2022/05/01 13:19:22 by fruiz-ca         ###   ########.fr       */
+/*   Created: 2022/04/28 14:21:26 by fruiz-ca          #+#    #+#             */
+/*   Updated: 2022/04/28 15:30:02 by fruiz-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-void	*ft_memmove(void *dest, const void *src, size_t len)
+char	*ft_strdup(const char *s1)
 {
-	unsigned char	*cdest;
-	unsigned char	*csrc;
-	size_t			i;
+	int		s1_len;
+	char	*dup;
+	int		i;
 
-	cdest = dest;
-	csrc = (unsigned char *)src;
+	s1_len = strlen(s1);
+	dup = malloc(s1_len + 1);
 	i = 0;
-	if (dest < src)
+	while (s1[i] != '\0')
 	{
-		while (i < len)
-		{
-			cdest[i] = csrc[i];
-			i++;
-		}
+		dup[i] = s1[i];
+		i++;
 	}
-	else if (dest > src)
-	{
-		while (len > 0)
-		{
-			cdest[len - 1] = csrc[len - 1];
-			len--;
-		}
-	}
-	return (cdest);
+	dup[i] = '\0';
+	return (dup);
 }

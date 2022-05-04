@@ -1,41 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fruiz-ca <fruiz-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/26 12:24:24 by fruiz-ca          #+#    #+#             */
-/*   Updated: 2022/05/01 13:19:22 by fruiz-ca         ###   ########.fr       */
+/*   Created: 2022/04/29 10:14:35 by fruiz-ca          #+#    #+#             */
+/*   Updated: 2022/05/04 11:41:59 by fruiz-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <stdio.h>
 
-void	*ft_memmove(void *dest, const void *src, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	unsigned char	*cdest;
-	unsigned char	*csrc;
-	size_t			i;
+	char			*sub;
+	unsigned int	i;
+	unsigned int	j;
 
-	cdest = dest;
-	csrc = (unsigned char *)src;
+	sub = (char *)malloc(sizeof(*s) * (len + 1));
+	if (sub == 0)
+		return (0);
 	i = 0;
-	if (dest < src)
+	while (i < start)
 	{
-		while (i < len)
-		{
-			cdest[i] = csrc[i];
-			i++;
-		}
+		s++;
+		i++;
 	}
-	else if (dest > src)
+	j = 0;
+	while (j < len)
 	{
-		while (len > 0)
-		{
-			cdest[len - 1] = csrc[len - 1];
-			len--;
-		}
+		sub[j] = *s;
+		s++;
+		j++;
 	}
-	return (cdest);
+	sub[j] = '\0';
+	return (sub);
 }
+
+/*
+int	main(void)
+{
+	char *str = "lorem ipsum dolor sit amet";
+	printf("%s", ft_substr(str, 0, 10));
+	return (0);
+}*/

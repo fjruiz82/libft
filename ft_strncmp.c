@@ -6,7 +6,7 @@
 /*   By: fruiz-ca <fruiz-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 12:26:21 by fruiz-ca          #+#    #+#             */
-/*   Updated: 2022/04/27 10:32:06 by fruiz-ca         ###   ########.fr       */
+/*   Updated: 2022/05/01 11:41:23 by fruiz-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	unsigned long	i;
+	size_t			i;
 	unsigned char	*s1cp;
 	unsigned char	*s2cp;
 

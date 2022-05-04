@@ -1,40 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fruiz-ca <fruiz-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/28 11:36:43 by fruiz-ca          #+#    #+#             */
-/*   Updated: 2022/05/01 10:31:06 by fruiz-ca         ###   ########.fr       */
+/*   Created: 2022/04/29 12:30:51 by fruiz-ca          #+#    #+#             */
+/*   Updated: 2022/05/04 11:20:43 by fruiz-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <string.h>
+#include <stdio.h>
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*hcp;
-	char	*ncp;
-	size_t	i;
-	size_t	j;
-	size_t	nlen;
+	char			*concat;
+	unsigned int	i;
 
-	hcp = (char *)haystack;
-	ncp = (char *)needle;
+	concat = (char *)malloc(sizeof(s1) * (strlen(s1) + strlen(s2) + 1));
 	i = 0;
-	nlen = strlen(needle);
-	if (*ncp == 0)
-		return (hcp);
-	while (hcp[i] != '\0' && i < len)
+	while (*s1 != '\0')
 	{
-		j = 0;
-		while (hcp[i + j] == ncp[j] && ncp[j] != '\0' && j + i < len)
-			j++;
-		if (j == nlen)
-			return (&hcp[i]);
+		concat[i] = *s1;
 		i++;
+		s1++;
 	}
+	while (*s2 != '\0')
+	{
+		concat[i] = *s2;
+		i++;
+		s2++;
+	}
+	concat[i] = '\0';
+	return (concat);
+}
+
+/*
+int	main(void)
+{
+	char	s1[];
+	char	s2[];
+
+	s1[] = "lorem ipsum";
+	s2[] = "dolor sit amet";
+	printf("%s", ft_strjoin(s1, s2));
 	return (0);
 }
+*/
