@@ -6,7 +6,7 @@
 /*   By: fruiz-ca <fruiz-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 15:43:09 by fruiz-ca          #+#    #+#             */
-/*   Updated: 2022/05/04 17:45:12 by fruiz-ca         ###   ########.fr       */
+/*   Updated: 2022/05/07 18:36:45 by fruiz-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*ft_strrev(char *str)
 		i++;
 		j--;
 	}
-    return (str);
+	return (str);
 }
 
 char	*ft_itoa(int n)
@@ -41,12 +41,12 @@ char	*ft_itoa(int n)
 	i = 0;
 	is_neg = 0;
 	temp = malloc(sizeof(char) * 12);
-    if (temp == 0)
-        return (0);
+	if (temp == 0)
+		return (0);
 	if (n == -2147483648)
 		return ("-2147483648");
-    if (n == 0)
-        return (temp = "0");
+	if (n == 0)
+		return (temp = "0");
 	if (n < 0)
 	{
 		is_neg = 1;

@@ -6,7 +6,7 @@
 /*   By: fruiz-ca <fruiz-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 12:30:51 by fruiz-ca          #+#    #+#             */
-/*   Updated: 2022/05/04 11:20:43 by fruiz-ca         ###   ########.fr       */
+/*   Updated: 2022/05/07 09:36:11 by fruiz-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	unsigned int	i;
 
 	concat = (char *)malloc(sizeof(s1) * (strlen(s1) + strlen(s2) + 1));
+	if (concat == NULL)
+		return (NULL);
 	i = 0;
 	while (*s1 != '\0')
 	{

@@ -6,7 +6,7 @@
 /*   By: fruiz-ca <fruiz-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 10:14:35 by fruiz-ca          #+#    #+#             */
-/*   Updated: 2022/05/04 11:41:59 by fruiz-ca         ###   ########.fr       */
+/*   Updated: 2022/05/07 19:26:35 by fruiz-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,16 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char			*sub;
-	unsigned int	i;
-	unsigned int	j;
+	char	*sub;
+	size_t	i;
+	size_t	j;
 
 	sub = (char *)malloc(sizeof(*s) * (len + 1));
+	if (start >= ft_strlen(s))
+	{
+		sub = malloc(0);
+		return (sub);
+	}
 	if (sub == 0)
 		return (0);
 	i = 0;

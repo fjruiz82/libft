@@ -6,19 +6,18 @@
 /*   By: fruiz-ca <fruiz-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 12:25:47 by fruiz-ca          #+#    #+#             */
-/*   Updated: 2022/04/26 12:28:56 by fruiz-ca         ###   ########.fr       */
+/*   Updated: 2022/05/07 10:23:25 by fruiz-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "stdio.h"
 
-unsigned int	ft_strlcpy(char *dest, const char *src,
-		size_t size)
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
-	char			*cdest;
-	const char		*csrc;
-	unsigned int	i;
+	char		*cdest;
+	const char	*csrc;
+	size_t		i;
 
 	cdest = dest;
 	csrc = src;
