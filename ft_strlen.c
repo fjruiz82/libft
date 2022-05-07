@@ -6,13 +6,15 @@
 /*   By: fruiz-ca <fruiz-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 13:03:16 by fruiz-ca          #+#    #+#             */
-/*   Updated: 2022/04/26 13:03:20 by fruiz-ca         ###   ########.fr       */
+/*   Updated: 2022/05/07 09:30:21 by fruiz-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(const char *str)
+#include "libft.h"
+
+size_t	ft_strlen(const char *str)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (str[i] != '\0')

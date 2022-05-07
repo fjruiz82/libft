@@ -1,34 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fruiz-ca <fruiz-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/26 13:06:30 by fruiz-ca          #+#    #+#             */
-/*   Updated: 2022/05/07 14:11:05 by fruiz-ca         ###   ########.fr       */
+/*   Created: 2022/05/07 16:51:18 by fruiz-ca          #+#    #+#             */
+/*   Updated: 2022/05/07 19:11:20 by fruiz-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	char	*str;
-	int		i;
-	int		s_len;
+	t_list	*tmp;
 
-	s_len = ft_strlen(s);
-	str = (char *)s;
-	i = 0;
-	if (c == 0)
-		return (&str[s_len]);
-	while (str[i] != '\0')
+	tmp = lst;
+	while (tmp != 0)
 	{
-		if (str[i] != c)
-			i++;
-		else if (str[i] == c)
-			return (&str[i]);
+		(*f)(tmp->content);
+		tmp = tmp->next;
 	}
-	return (0);
 }
+
+/*
+if (!f)
+		return ;
+	while (lst)
+	{
+		(*f)(lst->content);
+		lst = lst->next;
+	}
+*/
+/*
+if (!lst || !f)
+		return ;
+	while (lst)
+	{
+		f(lst->content);
+		lst = lst->next;
+	}
+*/
+/*t_list	*temp;
+	temp = lst;
+	while (temp)
+	{
+		(*f)(temp->content);
+		temp = temp->next;
+	}
+*/

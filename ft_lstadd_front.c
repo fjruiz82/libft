@@ -1,34 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fruiz-ca <fruiz-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/26 13:06:30 by fruiz-ca          #+#    #+#             */
-/*   Updated: 2022/05/07 14:11:05 by fruiz-ca         ###   ########.fr       */
+/*   Created: 2022/05/07 07:35:02 by fruiz-ca          #+#    #+#             */
+/*   Updated: 2022/05/07 15:46:23 by fruiz-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	char	*str;
-	int		i;
-	int		s_len;
-
-	s_len = ft_strlen(s);
-	str = (char *)s;
-	i = 0;
-	if (c == 0)
-		return (&str[s_len]);
-	while (str[i] != '\0')
-	{
-		if (str[i] != c)
-			i++;
-		else if (str[i] == c)
-			return (&str[i]);
-	}
-	return (0);
+	if (*lst != NULL)
+		new->next = *lst;
+	*lst = new;
 }
+
+/*if (new)
+	{
+		new->next = *lst;
+		*lst = new;
+	}*/
+
+/*if (alst == (t_list **)NULL || new == (t_list *)NULL)
+		return ;
+	new->next = *alst;
+	*alst = new;*/
+
+/*{
+	if (*alst)
+		new->next = *alst;
+	*alst = new;
+}*/
+
+/*void	ft_lstadd(t_list **alst, t_list *new)
+{
+	if (new && alst)
+	{
+		new->next = *alst;
+		*alst = new;
+	}
+}*/
