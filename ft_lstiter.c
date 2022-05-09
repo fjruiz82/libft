@@ -6,7 +6,7 @@
 /*   By: fruiz-ca <fruiz-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/07 16:51:18 by fruiz-ca          #+#    #+#             */
-/*   Updated: 2022/05/07 19:11:20 by fruiz-ca         ###   ########.fr       */
+/*   Updated: 2022/05/09 12:51:58 by fruiz-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,28 +25,11 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 }
 
 /*
-if (!f)
-		return ;
-	while (lst)
-	{
-		(*f)(lst->content);
-		lst = lst->next;
-	}
-*/
-/*
 if (!lst || !f)
 		return ;
 	while (lst)
 	{
 		f(lst->content);
 		lst = lst->next;
-	}
-*/
-/*t_list	*temp;
-	temp = lst;
-	while (temp)
-	{
-		(*f)(temp->content);
-		temp = temp->next;
 	}
 */

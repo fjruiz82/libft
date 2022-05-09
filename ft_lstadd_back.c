@@ -6,7 +6,7 @@
 /*   By: fruiz-ca <fruiz-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/07 15:42:04 by fruiz-ca          #+#    #+#             */
-/*   Updated: 2022/05/07 15:55:56 by fruiz-ca         ###   ########.fr       */
+/*   Updated: 2022/05/09 12:34:01 by fruiz-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_list	*back;
+	t_list	*end;
 
-	if (*lst != NULL)
-	{
-		back = ft_lstlast(*lst);
-		back->next = &*new;
-	}
+	end = *lst;
+	while (end != 0 && end->next)
+		end = end->next;
+	if (end != 0)
+		end->next = new;
 	else
 		*lst = new;
 }
