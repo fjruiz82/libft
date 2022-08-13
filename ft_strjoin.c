@@ -6,21 +6,20 @@
 /*   By: fruiz-ca <fruiz-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 12:30:51 by fruiz-ca          #+#    #+#             */
-/*   Updated: 2022/05/07 09:36:11 by fruiz-ca         ###   ########.fr       */
+/*   Updated: 2022/05/13 15:27:16 by fruiz-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char			*concat;
 	unsigned int	i;
 
-	concat = (char *)malloc(sizeof(s1) * (strlen(s1) + strlen(s2) + 1));
-	if (concat == NULL)
-		return (NULL);
+	concat = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	if (concat == 0)
+		return (0);
 	i = 0;
 	while (*s1 != '\0')
 	{
@@ -37,16 +36,3 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	concat[i] = '\0';
 	return (concat);
 }
-
-/*
-int	main(void)
-{
-	char	s1[];
-	char	s2[];
-
-	s1[] = "lorem ipsum";
-	s2[] = "dolor sit amet";
-	printf("%s", ft_strjoin(s1, s2));
-	return (0);
-}
-*/

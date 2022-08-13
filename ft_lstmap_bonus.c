@@ -1,31 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fruiz-ca <fruiz-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/26 12:26:51 by fruiz-ca          #+#    #+#             */
-/*   Updated: 2022/05/13 14:57:45 by fruiz-ca         ###   ########.fr       */
+/*   Created: 2022/05/07 18:51:10 by fruiz-ca          #+#    #+#             */
+/*   Updated: 2022/05/13 13:39:21 by fruiz-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	char	*scp;
-	int		i;
+	t_list	*new_lst;
+	t_list	*l;
 
-	scp = (char *)s;
-	i = 0;
-	while (scp[i] != '\0')
-		i++;
-	while (i >= 0)
+	if (lst == 0)
+		return (0);
+	new_lst = ft_lstnew(f(lst->content));
+	if (new_lst == 0)
+		return (0);
+	l = new_lst;
+	while (lst->next)
 	{
-		if (scp[i] == (char)c)
-			return (&scp[i]);
-		i--;
+		l->next = ft_lstnew(f(lst->next->content));
+		if (!l->next)
+		{
+			ft_lstclear(&new_lst, del);
+			return (0);
+		}
+		l = l->next;
+		lst = lst->next;
 	}
-	return (0);
+	return (new_lst);
 }

@@ -6,9 +6,11 @@
 /*   By: fruiz-ca <fruiz-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 12:55:11 by fruiz-ca          #+#    #+#             */
-/*   Updated: 2022/05/04 09:42:41 by fruiz-ca         ###   ########.fr       */
+/*   Updated: 2022/05/13 14:59:59 by fruiz-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_atoi(const char *str)
 {

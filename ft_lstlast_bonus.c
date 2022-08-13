@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fruiz-ca <fruiz-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/26 12:26:51 by fruiz-ca          #+#    #+#             */
-/*   Updated: 2022/05/13 14:57:45 by fruiz-ca         ###   ########.fr       */
+/*   Created: 2022/05/07 08:31:20 by fruiz-ca          #+#    #+#             */
+/*   Updated: 2022/05/09 12:01:38 by fruiz-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+t_list	*ft_lstlast(t_list *lst)
 {
-	char	*scp;
-	int		i;
-
-	scp = (char *)s;
-	i = 0;
-	while (scp[i] != '\0')
-		i++;
-	while (i >= 0)
+	while (lst != 0)
 	{
-		if (scp[i] == (char)c)
-			return (&scp[i]);
-		i--;
+		if (lst->next == 0)
+			return (lst);
+		lst = lst->next;
 	}
-	return (0);
+	return (lst);
 }

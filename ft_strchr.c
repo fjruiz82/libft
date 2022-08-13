@@ -6,7 +6,7 @@
 /*   By: fruiz-ca <fruiz-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 13:06:30 by fruiz-ca          #+#    #+#             */
-/*   Updated: 2022/05/07 14:11:05 by fruiz-ca         ###   ########.fr       */
+/*   Updated: 2022/05/13 12:10:36 by fruiz-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,12 @@ char	*ft_strchr(const char *s, int c)
 {
 	char	*str;
 	int		i;
-	int		s_len;
 
-	s_len = ft_strlen(s);
 	str = (char *)s;
 	i = 0;
-	if (c == 0)
-		return (&str[s_len]);
-	while (str[i] != '\0')
-	{
-		if (str[i] != c)
-			i++;
-		else if (str[i] == c)
-			return (&str[i]);
-	}
+	while (str[i] != '\0' && str[i] != (char)c)
+		str++;
+	if (str[i] == (char)c)
+		return (&str[i]);
 	return (0);
 }

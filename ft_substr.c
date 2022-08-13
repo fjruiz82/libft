@@ -1,53 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_sub
+.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fruiz-ca <fruiz-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 10:14:35 by fruiz-ca          #+#    #+#             */
-/*   Updated: 2022/05/07 19:26:35 by fruiz-ca         ###   ########.fr       */
+/*   Updated: 2022/05/10 14:48:00 by fruiz-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
+
+static size_t	ft_foralloc(size_t s, size_t len)
+{
+	if (s < len)
+		return (s);
+	return (len);
+}
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*sub;
 	size_t	i;
 	size_t	j;
+	char	*sub;
 
-	sub = (char *)malloc(sizeof(*s) * (len + 1));
-	if (start >= ft_strlen(s))
+	if (s == 0)
+		return (0);
+	if (ft_strlen(s) < start)
 	{
-		sub = malloc(0);
+		sub = malloc(sizeof(char));
+		*sub = '\0';
 		return (sub);
 	}
+	sub = (char *)malloc(ft_foralloc(ft_strlen(s), len) + 1);
 	if (sub == 0)
 		return (0);
-	i = 0;
-	while (i < start)
-	{
-		s++;
-		i++;
-	}
+	i = start;
 	j = 0;
-	while (j < len)
+	while (s[i] && i < start + len)
 	{
-		sub[j] = *s;
-		s++;
+		sub[j] = s[i];
+		i++;
 		j++;
 	}
 	sub[j] = '\0';
 	return (sub);
 }
-
-/*
-int	main(void)
-{
-	char *str = "lorem ipsum dolor sit amet";
-	printf("%s", ft_substr(str, 0, 10));
-	return (0);
-}*/

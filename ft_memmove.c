@@ -6,11 +6,11 @@
 /*   By: fruiz-ca <fruiz-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 12:24:24 by fruiz-ca          #+#    #+#             */
-/*   Updated: 2022/05/01 13:19:22 by fruiz-ca         ###   ########.fr       */
+/*   Updated: 2022/05/13 14:50:24 by fruiz-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
 void	*ft_memmove(void *dest, const void *src, size_t len)
 {
